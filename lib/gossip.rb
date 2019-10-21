@@ -22,7 +22,12 @@ class Gossip
     gossip_found
   end
 
-
+  def self.update(author,content,id)
+    gossip = Gossip.id
+    gossip.content = content
+    gossip.author = author
+    gossip.save
+  end
 
   def self.all
     all_gossips = []

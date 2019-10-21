@@ -3,16 +3,32 @@
     <title>The Gossip Project</title>
   </head>
   <body>
-    <h1>PAGE POTIN</h1>
+    <h1>Page du potin</h1>
 
-    
-    <p> Voici la page du potin n°<%= gossip.id %>
-    Son auteur : <%= gossip.author %>
-    Le contenu du potin : <%= gossip.content %> </p>
+    <h2>Voici le potin :</h2>
+    <p> Voici la page du potin n°<%= gossip.id %> </n> </p>
+    <p> Son auteur : <%= gossip.author %> </p>
+    <p> Le contenu du potin : <%= gossip.content %> </p>
     
     <a href = "/" > Lien pour revenir à la page des potins </a>
+    <p> </p>
+    <a href = "/gossips/<%= gossip.id %>/edit/" > Modifier le potin  </a>
 
-    
+    <h2> Commentaires </h2>
+
+    <% comment.each do |one_comment| %>
+      <p>
+        <%= one_comment.content %><br/>
+      </p>
+    <% end %>
+
+    <h2> Ajouter un commenctaire : </h2>
+    <form action='/gossip/<%= gossip.id %>/' method='POST'>
+      <input type='text' name='comment_content' /> <br/>
+      
+      <input type='submit'/>
+    </form>
+
 
   </body>
 </html>
